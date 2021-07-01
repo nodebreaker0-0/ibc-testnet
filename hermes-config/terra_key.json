@@ -2,6 +2,6 @@
     "name": "user",
     "type": "local",
     "address": "terra1r8jjyrqg5jra6m6zw24yzphlkxyttnf5w8jey7",
-    "pubkey": {"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AzV7J0UEWdAsNdQlQCOasxbnaotnCVIaeJGjHkEVV6sc"},
+    "pubkey": "terrapub1addwnpepqv6hkf69q3vaqtp46sj5qgu6kvtww65tvuy4yxncjx33usg42743crle6ed",
     "mnemonic": "extra elevator rocket enjoy nominee flush this globe village coach armed nuclear syrup orchard entire wall heavy exhibit october forward judge remember chaos rug"
   }

@@ -7,8 +7,8 @@ sudo apt install pkg-config
 cargo install ibc-relayer-cli --bin hermes --locked
 cd ..
 rm -r ibc-rs
-#cosmos-sdk v0.42.6
 
+#cosmos-sdk v0.42.6
 git clone https://github.com/cosmos/gaia
 cd gaia
 git pull
@@ -16,6 +16,7 @@ git checkout v5.0.0
 make install
 cd ..
 rm -r gaia
+
 #cosmos-sdk v0.43.0-beta1
 git clone https://github.com/terra-money/core
 cd core
@@ -24,6 +25,7 @@ git checkout v0.5.0-beta4
 make install
 cd ..
 rm -r core
+
 #cosmos-sdk v0.42.4
 git clone https://github.com/irisnet/irishub
 cd irishub
@@ -40,6 +42,7 @@ git checkout v2.0.3
 make install
 cd ..
 rm -r chain
+
 #cosmos-sdk v0.42.5
 git clone https://github.com/osmosis-labs/osmosis
 cd osmosis/
@@ -69,13 +72,6 @@ rm -r regen-ledger/
 
 export WALLET_NAME_VALIDATOR=validator 
 
-sudo rm -r ~/.gaia/
-sudo rm -r ~/.terra/
-sudo rm -r ~/.osmosisd/
-sudo rm -r ~/.band/
-sudo rm -r ~/.iris/
-sudo rm -r ~/.sentinelhub/
-sudo rm -r ~/.regen/
 
 sudo service gaiad stop
 sudo service bandd stop
@@ -84,6 +80,14 @@ sudo service terrad stop
 sudo service iris stop
 sudo service sentinelhub stop
 sudo service regen stop
+
+sudo rm -r ~/.gaia/
+sudo rm -r ~/.terra/
+sudo rm -r ~/.osmosisd/
+sudo rm -r ~/.band/
+sudo rm -r ~/.iris/
+sudo rm -r ~/.sentinelhub/
+sudo rm -r ~/.regen/
 
 sudo systemctl disable gaiad.service
 sudo systemctl disable bandd.service
@@ -108,6 +112,9 @@ osmosisd init test --chain-id osmo
 iris init test --chain-id iris
 sentinelhub init test --chain-id sentinelhub
 regen init test --chain-id regen
+
+rm ~/.sentinelhub/config/genesis.json
+cp chains-config/sentinelhub/genesis.json ~/.sentinelhub/config/genesis.json
 
 gaiad keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 bandd keys add $WALLET_NAME_VALIDATOR --keyring-backend test
@@ -139,7 +146,7 @@ bandd add-genesis-account band1dn94fk7ul6gj7dprdnw7ufvepmkwaun7tn8n4t 1000000000
 terrad add-genesis-account terra17pdf2zxfcuclavl7874tjwuk89aga06h8uqzxz 100000000000uluna
 osmosisd add-genesis-account osmo18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6qayf32 1000000000000uosmo
 iris add-genesis-account iaa18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6ayhg9f 1000000000000uiris
-sentinelhub add-genesis-account sent18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6napqrh 1000000000000udvpn
+sentinelhub add-genesis-account sent18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6napqrh 1000000000000dvpn
 regen add-genesis-account regen18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6hyu93u 1000000000000uregen
 
 #hermes
@@ -148,12 +155,12 @@ bandd add-genesis-account band130z65arllqurj5e62pvjmemgch56twatlxwdlp 1000000000
 terrad add-genesis-account terra1r8jjyrqg5jra6m6zw24yzphlkxyttnf5w8jey7 100000000000uluna
 osmosisd add-genesis-account osmo1jgldgxzjyzxygr8vtmfhwpn7raz3a42zr7ssgc 1000000000000uosmo
 iris add-genesis-account iaa1jgldgxzjyzxygr8vtmfhwpn7raz3a42z78r3um 1000000000000uiris
-sentinelhub add-genesis-account sent1jgldgxzjyzxygr8vtmfhwpn7raz3a42zs74e69 1000000000000udvpn
+sentinelhub add-genesis-account sent1jgldgxzjyzxygr8vtmfhwpn7raz3a42zs74e69 1000000000000dvpn
 regen add-genesis-account regen1jgldgxzjyzxygr8vtmfhwpn7raz3a42z58gugw 1000000000000uregen
 
 gaiad gentx $WALLET_NAME_VALIDATOR 100000000$GAIA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(gaiad tendermint show-validator) --chain-id gaia --keyring-backend test
 bandd gentx $WALLET_NAME_VALIDATOR 100000000$BAND_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(bandd tendermint show-validator) --chain-id band --keyring-backend test
-terrad gentx $WALLET_NAME_VALIDATOR 100000000$TERRA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(terrad tendermint show-validator) --chain-id terra --keyring-backend test
+terrad gentx $WALLET_NAME_VALIDATOR 100000000$TERRA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --chain-id terra --keyring-backend test
 osmosisd gentx $WALLET_NAME_VALIDATOR 100000000$OSMO_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(osmosisd tendermint show-validator) --chain-id osmo --keyring-backend test
 iris gentx $WALLET_NAME_VALIDATOR 100000000$IRIS_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(iris tendermint show-validator) --chain-id iris --keyring-backend test
 sentinelhub gentx $WALLET_NAME_VALIDATOR 100000000$SENTINELHUB_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(sentinelhub tendermint show-validator) --chain-id sentinelhub --keyring-backend test
@@ -188,7 +195,8 @@ cp chains-config/band/* ~/.band/config/
 cp chains-config/terra/* ~/.terra/config/
 cp chains-config/osmo/* ~/.osmosisd/config/
 cp chains-config/iris/* ~/.iris/config/
-cp chains-config/sentinelhub/* ~/.sentinelhub/config/
+cp chains-config/sentinelhub/app.toml ~/.sentinelhub/config/
+cp chains-config/sentinelhub/config.toml ~/.sentinelhub/config/
 cp chains-config/regen/* ~/.regen/config/
 
 export USERNAME=$(whoami)
@@ -328,11 +336,25 @@ sudo systemctl start osmosisd
 sudo systemctl start sentinelhub
 sudo systemctl start regen
 
-sudo rm -r ~/.hermes/
+rm -r ~/.hermes/
 hermes -c hermes-config/config.toml keys add gaia -f hermes-config/gaia_key.json -n test
 hermes -c hermes-config/config.toml keys add band -f hermes-config/band_key.json -n test  -p "m/44'/494'/0'/0/0"
-hermes -c hermes-config/config.toml keys add terra -f hermes-config/terra_key.json -n test
+hermes -c hermes-config/config.toml keys add terra -f hermes-config/terra_key.json -n test -p "m/44'/330'/0'/0/0"
 hermes -c hermes-config/config.toml keys add osmo -f hermes-config/osmo_key.json -n test
 hermes -c hermes-config/config.toml keys add iris -f hermes-config/iris_key.json -n test
 hermes -c hermes-config/config.toml keys add sentinelhub -f hermes-config/sentinelhub_key.json -n test
 hermes -c hermes-config/config.toml keys add regen -f hermes-config/regen_key.json -n test
+
+sudo service gaiad status | grep Active
+
+sudo service bandd status | grep Active
+
+sudo service terrad status | grep Active
+
+sudo service osmosisd status | grep Active
+
+sudo service iris status | grep Active
+
+sudo service sentinelhub status | grep Active
+
+sudo service regen status | grep Active
