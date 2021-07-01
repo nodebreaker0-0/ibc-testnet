@@ -82,3 +82,35 @@ gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'sentinelhub'
+rpc_addr = 'http://127.0.0.1:26157'
+grpc_addr = 'http://127.0.0.1:9191'
+websocket_addr = 'ws://localhost:26157/websocket'
+rpc_timeout = '10s'
+account_prefix = 'sent'
+key_name = 'test'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'udvpn' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'regen'
+rpc_addr = 'http://127.0.0.1:26757'
+grpc_addr = 'http://127.0.0.1:9797'
+websocket_addr = 'ws://localhost:26757/websocket'
+rpc_timeout = '10s'
+account_prefix = 'regen'
+key_name = 'test'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uregen' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
