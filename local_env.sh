@@ -70,6 +70,34 @@ make install
 cd ..
 rm -r regen-ledger/
 
+#cosmos-sdk 
+git clone https://github.com/ovrclk/akash
+cd akash/
+git pull
+git checkout v0.12.2-rc6
+make install
+cd ..
+rm -r akash/
+
+#cosmos-sdk v0.42.6
+mkdir cro
+cd cro
+curl -LOJ https://github.com/crypto-org-chain/chain-main/releases/download/v2.1.0/chain-main_2.1.0_Linux_x86_64.tar.gz
+tar -zxvf chain-main_2.1.0_Linux_x86_64.tar.gz
+sudo chmod +x bin/chain-maind
+mv bin/chain-maind ~/goApps/bin/
+cd ..
+rm -r cro
+
+#cosmos-sdk v0.42.4
+git clone https://github.com/persistenceOne/persistenceCore
+cd persistenceCore/
+git pull
+git checkout v0.1.3
+make install
+cd ..
+rm -r persistenceCore/
+
 export WALLET_NAME_VALIDATOR=validator 
 
 
@@ -80,6 +108,9 @@ sudo service terrad stop
 sudo service iris stop
 sudo service sentinelhub stop
 sudo service regen stop
+sudo service akash stop
+sudo service cro stop
+sudo service persistenceCore stop
 
 sudo rm -r ~/.gaia/
 sudo rm -r ~/.terra/
@@ -88,6 +119,9 @@ sudo rm -r ~/.band/
 sudo rm -r ~/.iris/
 sudo rm -r ~/.sentinelhub/
 sudo rm -r ~/.regen/
+sudo rm -r ~/.akash/
+sudo rm -r ~/.chain-maind/
+sudo rm -r ~/.persistenceCore/
 
 sudo systemctl disable gaiad.service
 sudo systemctl disable bandd.service
@@ -96,6 +130,9 @@ sudo systemctl disable iris.service
 sudo systemctl disable osmosisd.service
 sudo systemctl disable sentinelhub.service
 sudo systemctl disable regen.service
+sudo systemctl disable akash.service
+sudo systemctl disable cro.service
+sudo systemctl disable persistenceCore.service
 
 sudo rm /etc/systemd/system/gaiad.service
 sudo rm /etc/systemd/system/bandd.service
@@ -104,6 +141,9 @@ sudo rm /etc/systemd/system/iris.service
 sudo rm /etc/systemd/system/osmosisd.service
 sudo rm /etc/systemd/system/sentinelhub.service
 sudo rm /etc/systemd/system/regen.service
+sudo rm /etc/systemd/system/akash.service
+sudo rm /etc/systemd/system/cro.service
+sudo rm /etc/systemd/system/persistenceCore.service
 
 gaiad init test --chain-id gaia
 bandd init test --chain-id band
@@ -112,6 +152,9 @@ osmosisd init test --chain-id osmo
 iris init test --chain-id iris
 sentinelhub init test --chain-id sentinelhub
 regen init test --chain-id regen
+akash init test --chain-id akash
+chain-maind init test --chain-id cro
+persistenceCore init test --chain-id persistenceCore
 
 rm ~/.sentinelhub/config/genesis.json
 cp chains-config/sentinelhub/genesis.json ~/.sentinelhub/config/genesis.json
@@ -123,6 +166,9 @@ terrad keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 iris keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 sentinelhub keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 regen keys add $WALLET_NAME_VALIDATOR --keyring-backend test
+akash keys add $WALLET_NAME_VALIDATOR --keyring-backend test
+chain-maind keys add $WALLET_NAME_VALIDATOR --keyring-backend test
+persistenceCore keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 
 export GAIA_DENOM=$(cat ~/.gaia/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
 export BAND_DENOM=$(cat ~/.band/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
@@ -131,6 +177,9 @@ export OSMO_DENOM=$(cat ~/.osmosisd/config/genesis.json | jq -r '.app_state.stak
 export IRIS_DENOM=$(cat ~/.iris/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
 export SENTINELHUB_DENOM=$(cat ~/.sentinelhub/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
 export REGEN_DENOM=$(cat ~/.regen/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
+export AKASH_DENOM=$(cat ~/.akash/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
+export CRO_DENOM=$(cat ~/.chain-maind/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
+export PERSISTENCECORE_DENOM=$(cat ~/.persistenceCore/config/genesis.json | jq -r '.app_state.staking.params.bond_denom')
 
 gaiad add-genesis-account $(gaiad keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$GAIA_DENOM
 bandd add-genesis-account $(bandd keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$BAND_DENOM
@@ -139,6 +188,9 @@ osmosisd add-genesis-account $(osmosisd keys show $WALLET_NAME_VALIDATOR -a --be
 iris add-genesis-account $(iris keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$IRIS_DENOM
 sentinelhub add-genesis-account $(sentinelhub keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$SENTINELHUB_DENOM
 regen add-genesis-account $(regen keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$REGEN_DENOM
+akash add-genesis-account $(akash keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$AKASH_DENOM
+chain-maind add-genesis-account $(chain-maind keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$CRO_DENOM
+persistenceCore add-genesis-account $(persistenceCore keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$PERSISTENCECORE_DENOM
 
 #sterss tester
 gaiad add-genesis-account cosmos18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6gxhe8c 1000000000000uatom
@@ -148,6 +200,9 @@ osmosisd add-genesis-account osmo18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6qayf32 1000000
 iris add-genesis-account iaa18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6ayhg9f 1000000000000uiris
 sentinelhub add-genesis-account sent18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6napqrh 1000000000000dvpn
 regen add-genesis-account regen18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6hyu93u 1000000000000uregen
+akash add-genesis-account akash18zh6zd2kwtekjeg0ns5xvn2x28hgj8n69a677z 1000000000000uakt
+chain-maind add-genesis-account cro1jhn9z0q0t3872kw7hkuz40yx5rj5hmhrf6u0pp 1000000000000ucro
+persistenceCore add-genesis-account persistence1qj57lazgwmmnnnthfajl4r0xfsrz02eknn9gz6 1000000000000uxprt
 
 #hermes
 gaiad add-genesis-account cosmos1jgldgxzjyzxygr8vtmfhwpn7raz3a42zt9rq72 1000000000000uatom
@@ -156,7 +211,9 @@ terrad add-genesis-account terra1r8jjyrqg5jra6m6zw24yzphlkxyttnf5w8jey7 10000000
 osmosisd add-genesis-account osmo1jgldgxzjyzxygr8vtmfhwpn7raz3a42zr7ssgc 1000000000000uosmo
 iris add-genesis-account iaa1jgldgxzjyzxygr8vtmfhwpn7raz3a42z78r3um 1000000000000uiris
 sentinelhub add-genesis-account sent1jgldgxzjyzxygr8vtmfhwpn7raz3a42zs74e69 1000000000000dvpn
-regen add-genesis-account regen1jgldgxzjyzxygr8vtmfhwpn7raz3a42z58gugw 1000000000000uregen
+akash add-genesis-account akash1jgldgxzjyzxygr8vtmfhwpn7raz3a42zx7w88s 1000000000000uakt
+chain-maind add-genesis-account cro1kpcuhcu47ytq267vy0edwlxgahxuftjucg0kzt 1000000000000ucro
+persistenceCore add-genesis-account persistence1pfpgsxvp2heu923dlrzk9avm96g0jywmr7jck4 1000000000000uxprt
 
 gaiad gentx $WALLET_NAME_VALIDATOR 100000000$GAIA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(gaiad tendermint show-validator) --chain-id gaia --keyring-backend test
 bandd gentx $WALLET_NAME_VALIDATOR 100000000$BAND_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(bandd tendermint show-validator) --chain-id band --keyring-backend test
@@ -165,6 +222,9 @@ osmosisd gentx $WALLET_NAME_VALIDATOR 100000000$OSMO_DENOM --commission-max-chan
 iris gentx $WALLET_NAME_VALIDATOR 100000000$IRIS_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(iris tendermint show-validator) --chain-id iris --keyring-backend test
 sentinelhub gentx $WALLET_NAME_VALIDATOR 100000000$SENTINELHUB_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(sentinelhub tendermint show-validator) --chain-id sentinelhub --keyring-backend test
 regen gentx $WALLET_NAME_VALIDATOR 100000000$REGEN_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(regen tendermint show-validator) --chain-id regen --keyring-backend test
+akash gentx $WALLET_NAME_VALIDATOR 100000000$AKASH_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(akash tendermint show-validator) --chain-id akash --keyring-backend test
+chain-maind gentx $WALLET_NAME_VALIDATOR 100000000$CRO_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(chain-maind tendermint show-validator) --chain-id cro --keyring-backend test
+persistenceCore gentx $WALLET_NAME_VALIDATOR 100000000$PERSISTENCECORE_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(persistenceCore tendermint show-validator) --chain-id persistenceCore --keyring-backend test
 
 gaiad collect-gentxs
 bandd collect-gentxs
@@ -173,6 +233,9 @@ osmosisd  collect-gentxs
 iris collect-gentxs
 sentinelhub collect-gentxs
 regen collect-gentxs
+akash collect-gentxs
+chain-maind collect-gentxs
+persistenceCore collect-gentxs
 
 rm ~/.gaia/config/config.toml
 rm ~/.band/config/config.toml
@@ -181,6 +244,9 @@ rm ~/.osmosisd/config/config.toml
 rm ~/.iris/config/config.toml
 rm ~/.sentinelhub/config/config.toml
 rm ~/.regen/config/config.toml
+rm ~/.akash/config/config.toml
+rm ~/.chain-maind/config/config.toml
+rm ~/.persistenceCore/config/config.toml
 
 rm ~/.gaia/config/app.toml
 rm ~/.band/config/app.toml
@@ -189,6 +255,9 @@ rm ~/.osmosisd/config/app.toml
 rm ~/.iris/config/app.toml
 rm ~/.sentinelhub/config/app.toml
 rm ~/.regen/config/app.toml
+rm ~/.akash/config/app.toml
+rm ~/.chain-maind/config/app.toml
+rm ~/.persistenceCore/config/app.toml
 
 cp chains-config/gaia/* ~/.gaia/config/
 cp chains-config/band/* ~/.band/config/
@@ -198,6 +267,9 @@ cp chains-config/iris/* ~/.iris/config/
 cp chains-config/sentinelhub/app.toml ~/.sentinelhub/config/
 cp chains-config/sentinelhub/config.toml ~/.sentinelhub/config/
 cp chains-config/regen/* ~/.regen/config/
+cp chains-config/akash/* ~/.akash/config/
+cp chains-config/cro/* ~/.chain-maind/config/
+cp chains-config/persistenceCore/* ~/.persistenceCore/config/
 
 export USERNAME=$(whoami)
 sudo -E bash -c 'cat << EOF > /etc/systemd/system/gaiad.service
@@ -320,6 +392,57 @@ LimitNOFILE=4096
 WantedBy=multi-user.target
 EOF'
 
+sudo -E bash -c 'cat << EOF > /etc/systemd/system/akash.service
+[Unit]
+Description=Node Daemon
+After=network-online.target
+Requires=akash.service
+
+[Service]
+User=$USERNAME
+ExecStart=$HOME/goApps/bin/akash start
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+
+sudo -E bash -c 'cat << EOF > /etc/systemd/system/cro.service
+[Unit]
+Description=Node Daemon
+After=network-online.target
+Requires=cro.service
+
+[Service]
+User=$USERNAME
+ExecStart=$HOME/goApps/bin/chain-maind start
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+
+sudo -E bash -c 'cat << EOF > /etc/systemd/system/persistenceCore.service
+[Unit]
+Description=Node Daemon
+After=network-online.target
+Requires=persistenceCore.service
+
+[Service]
+User=$USERNAME
+ExecStart=$HOME/goApps/bin/persistenceCore start
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+EOF'
+
 sudo systemctl enable gaiad
 sudo systemctl enable bandd
 sudo systemctl enable terrad
@@ -327,6 +450,9 @@ sudo systemctl enable iris
 sudo systemctl enable osmosisd
 sudo systemctl enable sentinelhub
 sudo systemctl enable regen
+sudo systemctl enable akash
+sudo systemctl enable cro
+sudo systemctl enable persistenceCore
 
 sudo systemctl start gaiad
 sudo systemctl start bandd
@@ -335,6 +461,9 @@ sudo systemctl start iris
 sudo systemctl start osmosisd
 sudo systemctl start sentinelhub
 sudo systemctl start regen
+sudo systemctl start akash
+sudo systemctl start cro
+sudo systemctl start persistenceCore
 
 rm -r ~/.hermes/
 hermes -c hermes-config/config.toml keys add gaia -f hermes-config/gaia_key.json -n test
@@ -344,17 +473,36 @@ hermes -c hermes-config/config.toml keys add osmo -f hermes-config/osmo_key.json
 hermes -c hermes-config/config.toml keys add iris -f hermes-config/iris_key.json -n test
 hermes -c hermes-config/config.toml keys add sentinelhub -f hermes-config/sentinelhub_key.json -n test
 hermes -c hermes-config/config.toml keys add regen -f hermes-config/regen_key.json -n test
+hermes -c hermes-config/config.toml keys add akash -f hermes-config/akash_key.json -n test
+hermes -c hermes-config/config.toml keys add cro -f hermes-config/cro_key.json -n test  -p "m/44'/394'/0'/0/0"
+hermes -c hermes-config/config.toml keys add persistenceCore -f hermes-config/persistenceCore_key.json -n test -p "m/44'/750'/0'/0/0"
 
 sudo service gaiad status | grep Active
+curl -s http://localhost:26657/status | jq '.result.sync_info.latest_block_height'
 
 sudo service bandd status | grep Active
+curl -s http://localhost:26557/status | jq '.result.sync_info.latest_block_height'
 
 sudo service terrad status | grep Active
+curl -s http://localhost:26257/status | jq '.result.sync_info.latest_block_height'
 
 sudo service osmosisd status | grep Active
+curl -s http://localhost:26457/status | jq '.result.sync_info.latest_block_height'
 
 sudo service iris status | grep Active
+curl -s http://localhost:26357/status | jq '.result.sync_info.latest_block_height'
 
 sudo service sentinelhub status | grep Active
+curl -s http://localhost:26157/status | jq '.result.sync_info.latest_block_height'
 
 sudo service regen status | grep Active
+curl -s http://localhost:26757/status | jq '.result.sync_info.latest_block_height'
+
+sudo service akash status | grep Active
+curl -s http://localhost:26857/status | jq '.result.sync_info.latest_block_height'
+
+sudo service cro status | grep Active
+curl -s http://localhost:26957/status | jq '.result.sync_info.latest_block_height'
+
+sudo service persistenceCore status | grep Active
+curl -s http://localhost:36657/status | jq '.result.sync_info.latest_block_height'

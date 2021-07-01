@@ -1,6 +1,6 @@
 [global]
 strategy = 'packets'
-log_level = 'debug'
+log_level = 'trace'
 
 [[chains]]
 id = 'gaia'
@@ -110,6 +110,54 @@ key_name = 'test'
 store_prefix = 'ibc'
 max_gas = 2000000
 gas_price = { price = 0.001, denom = 'uregen' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'akash'
+rpc_addr = 'http://127.0.0.1:26857'
+grpc_addr = 'http://127.0.0.1:9898'
+websocket_addr = 'ws://localhost:26857/websocket'
+rpc_timeout = '10s'
+account_prefix = 'akash'
+key_name = 'test'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uakt' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'cro'
+rpc_addr = 'http://127.0.0.1:26957'
+grpc_addr = 'http://127.0.0.1:9999'
+websocket_addr = 'ws://localhost:26957/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cro'
+key_name = 'test'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'ucro' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'persistenceCore'
+rpc_addr = 'http://127.0.0.1:36657'
+grpc_addr = 'http://127.0.0.1:3030'
+websocket_addr = 'ws://localhost:36657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'persistence'
+key_name = 'test'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uxprt' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
