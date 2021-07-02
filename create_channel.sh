@@ -9,8 +9,8 @@ hermes -c hermes-config/config9.toml create channel gaia cro --port-a transfer -
 hermes -c hermes-config/config10.toml create channel gaia persistenceCore --port-a transfer --port-b transfer -o unordered
 
 hermes -c hermes-config/config1.toml -j query clients gaia | jq
-hermes -c hermes-config/config1.toml -j query channels gaia | jq
 hermes -c hermes-config/config1.toml -j query connections gaia | jq
+hermes -c hermes-config/config1.toml -j query channels gaia | jq
 
 hermes -c hermes-config/config1.toml -j query clients band | jq
 hermes -c hermes-config/config1.toml -j query channels band | jq
