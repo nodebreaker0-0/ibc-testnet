@@ -98,9 +98,6 @@ make install
 cd ..
 rm -r persistenceCore/
 
-export WALLET_NAME_VALIDATOR=validator 
-
-
 sudo service gaiad stop
 sudo service bandd stop
 sudo service osmosisd stop
@@ -159,6 +156,8 @@ persistenceCore init test --chain-id persistenceCore
 rm ~/.sentinelhub/config/genesis.json
 cp chains-config/sentinelhub/genesis.json ~/.sentinelhub/config/genesis.json
 
+export WALLET_NAME_VALIDATOR=validator
+
 gaiad keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 bandd keys add $WALLET_NAME_VALIDATOR --keyring-backend test
 osmosisd keys add $WALLET_NAME_VALIDATOR --keyring-backend test
@@ -198,22 +197,69 @@ bandd add-genesis-account band1dn94fk7ul6gj7dprdnw7ufvepmkwaun7tn8n4t 1000000000
 terrad add-genesis-account terra17pdf2zxfcuclavl7874tjwuk89aga06h8uqzxz 100000000000uluna
 osmosisd add-genesis-account osmo18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6qayf32 1000000000000uosmo
 iris add-genesis-account iaa18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6ayhg9f 1000000000000uiris
-sentinelhub add-genesis-account sent18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6napqrh 1000000000000dvpn
+sentinelhub add-genesis-account sent18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6napqrh 1000000000000udvpn
 regen add-genesis-account regen18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6hyu93u 1000000000000uregen
 akash add-genesis-account akash18zh6zd2kwtekjeg0ns5xvn2x28hgj8n69a677z 1000000000000uakt
 chain-maind add-genesis-account cro1jhn9z0q0t3872kw7hkuz40yx5rj5hmhrf6u0pp 1000000000000ucro
 persistenceCore add-genesis-account persistence1qj57lazgwmmnnnthfajl4r0xfsrz02eknn9gz6 1000000000000uxprt
 
 #hermes
-gaiad add-genesis-account cosmos1jgldgxzjyzxygr8vtmfhwpn7raz3a42zt9rq72 1000000000000uatom
-bandd add-genesis-account band130z65arllqurj5e62pvjmemgch56twatlxwdlp 1000000000000uband
-terrad add-genesis-account terra1r8jjyrqg5jra6m6zw24yzphlkxyttnf5w8jey7 100000000000uluna
-osmosisd add-genesis-account osmo1jgldgxzjyzxygr8vtmfhwpn7raz3a42zr7ssgc 1000000000000uosmo
-iris add-genesis-account iaa1jgldgxzjyzxygr8vtmfhwpn7raz3a42z78r3um 1000000000000uiris
-sentinelhub add-genesis-account sent1jgldgxzjyzxygr8vtmfhwpn7raz3a42zs74e69 1000000000000dvpn
-akash add-genesis-account akash1jgldgxzjyzxygr8vtmfhwpn7raz3a42zx7w88s 1000000000000uakt
-chain-maind add-genesis-account cro1kpcuhcu47ytq267vy0edwlxgahxuftjucg0kzt 1000000000000ucro
-persistenceCore add-genesis-account persistence1pfpgsxvp2heu923dlrzk9avm96g0jywmr7jck4 1000000000000uxprt
+rm -r ~/.hermes/
+
+
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+        cli=$(gaiad keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore gaia -m "$MNEMONIC" -n test$i
+
+        cli=$(bandd keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore band -m "$MNEMONIC" -n test$i  -p "m/44'/494'/0'/0/0"
+
+        cli=$(terrad keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore terra -m "$MNEMONIC" -n test$i -p "m/44'/330'/0'/0/0"
+
+        cli=$(osmosisd keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore osmo -m "$MNEMONIC" -n test$i
+
+        cli=$(iris keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore iris -m "$MNEMONIC" -n test$i
+
+        cli=$(sentinelhub keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore sentinelhub -m "$MNEMONIC" -n test$i
+
+        cli=$(regen keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore regen -m "$MNEMONIC" -n test$i
+
+        cli=$(akash keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore akash -m "$MNEMONIC" -n test$i
+
+        cli=$(chain-maind keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore cro -m "$MNEMONIC" -n test$i  -p "m/44'/394'/0'/0/0"
+        
+        cli=$(persistenceCore keys add hermes$i --keyring-backend test --output json | jq -r '.')
+        MNEMONIC=$(echo $cli | jq -r '.mnemonic')
+        hermes -c hermes-config/config$i.toml keys restore persistenceCore -m "$MNEMONIC" -n test$i -p "m/44'/750'/0'/0/0"
+
+        gaiad add-genesis-account $(gaiad keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uatom
+        bandd add-genesis-account $(bandd keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uband
+        terrad add-genesis-account $(terrad keys show hermes$i -a --bech acc --keyring-backend test) 100000000000uluna
+        osmosisd add-genesis-account $(osmosisd keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uosmo
+        iris add-genesis-account $(iris keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uiris
+        sentinelhub add-genesis-account $(sentinelhub keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000udvpn
+        regen add-genesis-account $(regen keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uregen
+        akash add-genesis-account $(akash keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uakt
+        chain-maind add-genesis-account $(chain-maind keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000ucro
+        persistenceCore add-genesis-account $(persistenceCore keys show hermes$i -a --bech acc --keyring-backend test) 1000000000000uxprt
+done
 
 gaiad gentx $WALLET_NAME_VALIDATOR 100000000$GAIA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(gaiad tendermint show-validator) --chain-id gaia --keyring-backend test
 bandd gentx $WALLET_NAME_VALIDATOR 100000000$BAND_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(bandd tendermint show-validator) --chain-id band --keyring-backend test
@@ -465,18 +511,7 @@ sudo systemctl start akash
 sudo systemctl start cro
 sudo systemctl start persistenceCore
 
-rm -r ~/.hermes/
-hermes -c hermes-config/config.toml keys add gaia -f hermes-config/gaia_key.json -n test
-hermes -c hermes-config/config.toml keys add band -f hermes-config/band_key.json -n test  -p "m/44'/494'/0'/0/0"
-hermes -c hermes-config/config.toml keys add terra -f hermes-config/terra_key.json -n test -p "m/44'/330'/0'/0/0"
-hermes -c hermes-config/config.toml keys add osmo -f hermes-config/osmo_key.json -n test
-hermes -c hermes-config/config.toml keys add iris -f hermes-config/iris_key.json -n test
-hermes -c hermes-config/config.toml keys add sentinelhub -f hermes-config/sentinelhub_key.json -n test
-hermes -c hermes-config/config.toml keys add regen -f hermes-config/regen_key.json -n test
-hermes -c hermes-config/config.toml keys add akash -f hermes-config/akash_key.json -n test
-hermes -c hermes-config/config.toml keys add cro -f hermes-config/cro_key.json -n test  -p "m/44'/394'/0'/0/0"
-hermes -c hermes-config/config.toml keys add persistenceCore -f hermes-config/persistenceCore_key.json -n test -p "m/44'/750'/0'/0/0"
-
+sleep 6s
 sudo service gaiad status | grep Active
 curl -s http://localhost:26657/status | jq '.result.sync_info.latest_block_height'
 
