@@ -6,7 +6,7 @@ hermes -c hermes-config/config6.toml create channel gaia sentinelhub --port-a tr
 hermes -c hermes-config/config7.toml create channel gaia regen --port-a transfer --port-b transfer -o unordered&
 hermes -c hermes-config/config8.toml create channel gaia akash --port-a transfer --port-b transfer -o unordered&
 hermes -c hermes-config/config9.toml create channel gaia cro --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config10.toml create channel gaia persistenceCore --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config10.toml create channel gaia persistenceCore --port-a transfer --port-b transfer -o unordered
 
 hermes -c hermes-config/config1.toml -j query clients gaia | jq
 hermes -c hermes-config/config1.toml -j query channels gaia | jq
@@ -47,3 +47,5 @@ hermes -c hermes-config/config1.toml -j query connections cro | jq
 hermes -c hermes-config/config1.toml -j query clients persistenceCore | jq
 hermes -c hermes-config/config1.toml -j query channels persistenceCore | jq
 hermes -c hermes-config/config1.toml -j query connections persistenceCore | jq
+
+hermes -c hermes-config/config1.toml -j query channel end terra transfer channel-0 | jq
