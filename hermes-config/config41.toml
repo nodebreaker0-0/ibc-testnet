@@ -1,0 +1,164 @@
+[global]
+strategy = 'packets'
+log_level = 'trace'
+
+[[chains]]
+id = 'gaia'
+rpc_addr = 'http://127.0.0.1:26657'
+grpc_addr = 'http://127.0.0.1:9090'
+websocket_addr = 'ws://localhost:26657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uatom' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'band'
+rpc_addr = 'http://127.0.0.1:26557'
+grpc_addr = 'http://127.0.0.1:9595'
+websocket_addr = 'ws://localhost:26557/websocket'
+rpc_timeout = '10s'
+account_prefix = 'band'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uband' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+
+[[chains]]
+id = 'terra'
+rpc_addr = 'http://127.0.0.1:26257'
+grpc_addr = 'http://127.0.0.1:9292'
+websocket_addr = 'ws://localhost:26257/websocket'
+rpc_timeout = '10s'
+account_prefix = 'terra'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uluna' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'osmo'
+rpc_addr = 'http://127.0.0.1:26457'
+grpc_addr = 'http://127.0.0.1:9494'
+websocket_addr = 'ws://localhost:26457/websocket'
+rpc_timeout = '10s'
+account_prefix = 'osmo'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uosmo' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'iris'
+rpc_addr = 'http://127.0.0.1:26357'
+grpc_addr = 'http://127.0.0.1:9393'
+websocket_addr = 'ws://localhost:26357/websocket'
+rpc_timeout = '10s'
+account_prefix = 'iaa'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uiris' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'sentinelhub'
+rpc_addr = 'http://127.0.0.1:26157'
+grpc_addr = 'http://127.0.0.1:9191'
+websocket_addr = 'ws://localhost:26157/websocket'
+rpc_timeout = '10s'
+account_prefix = 'sent'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'udvpn' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'regen'
+rpc_addr = 'http://127.0.0.1:26757'
+grpc_addr = 'http://127.0.0.1:9797'
+websocket_addr = 'ws://localhost:26757/websocket'
+rpc_timeout = '10s'
+account_prefix = 'regen'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uregen' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'akash'
+rpc_addr = 'http://127.0.0.1:26857'
+grpc_addr = 'http://127.0.0.1:9898'
+websocket_addr = 'ws://localhost:26857/websocket'
+rpc_timeout = '10s'
+account_prefix = 'akash'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uakt' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'cro'
+rpc_addr = 'http://127.0.0.1:26957'
+grpc_addr = 'http://127.0.0.1:9999'
+websocket_addr = 'ws://localhost:26957/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cro'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'ucro' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'persistenceCore'
+rpc_addr = 'http://127.0.0.1:36657'
+grpc_addr = 'http://127.0.0.1:3030'
+websocket_addr = 'ws://localhost:36657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'persistence'
+key_name = 'test41'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'uxprt' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
