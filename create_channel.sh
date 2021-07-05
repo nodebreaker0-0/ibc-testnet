@@ -93,3 +93,13 @@ hermes -c hermes-config/config1.toml -j query channels persistenceCore | jq
 hermes -c hermes-config/config1.toml -j query connections persistenceCore | jq
 
 hermes -c hermes-config/config1.toml -j query channel end terra transfer channel-0 | jq
+
+hermes -c hermes-config/config1.toml -j query channel end sentinelhub transfer channel-2 | jq
+
+
+hermes -c hermes-config/config1.toml -j query clients sentinelhub | jq
+hermes -c hermes-config/config1.toml -j query client state sentinelhub 07-tendermint-2 | jq '.result.chain_id'
+hermes -c hermes-config/config1.toml -j query client connections sentinelhub 07-tendermint-2|  jq '.result'
+hermes -c hermes-config/config1.toml -j query connection end sentinelhub connection-2 | jq
+hermes -c hermes-config/config1.toml -j query connection channels sentinelhub connection-2 | jq '.result'
+hermes -c hermes-config/config1.toml -j query channel end sentinelhub transfer channel-0 | jq
