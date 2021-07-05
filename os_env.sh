@@ -1,12 +1,14 @@
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install build-essential jq
+sudo apt-get -y update
+sleep 2s
+sudo apt-get -y upgrade
+sleep 2s
+sudo apt-get -y install build-essential jq
 
 wget https://golang.org/dl/go1.16.3.linux-amd64.tar.gz
 tar  -xzf go1.16.3.linux-amd64.tar.gz
 rm -r $HOME/go 
 mv go $HOME/
-rm -xzf go1.16.3.linux-amd64.tar.gz
+rm go1.16.3.linux-amd64.tar.gz
 
 
 #.bashrc add Recommende
