@@ -96,10 +96,17 @@ hermes -c hermes-config/config1.toml -j query channel end terra transfer channel
 
 hermes -c hermes-config/config1.toml -j query channel end sentinelhub transfer channel-2 | jq
 
+# clients(clientid,chainid maping) -> clientid connections query ( clientid, chainid, connectid mapping) -> connectionid channels query ( clientid, chainid, connectid,channelid mapping)
+hermes -c hermes-config/config1.toml -j query clients gaia | jq
+hermes -c hermes-config/config1.toml -j query client connections gaia 07-tendermint-2|  jq '.result'
+hermes -c hermes-config/config1.toml -j query connection channels gaia connection-2 | jq '.result'
 
-hermes -c hermes-config/config1.toml -j query clients sentinelhub | jq
-hermes -c hermes-config/config1.toml -j query client state sentinelhub 07-tendermint-2 | jq '.result.chain_id'
-hermes -c hermes-config/config1.toml -j query client connections sentinelhub 07-tendermint-2|  jq '.result'
-hermes -c hermes-config/config1.toml -j query connection end sentinelhub connection-2 | jq
-hermes -c hermes-config/config1.toml -j query connection channels sentinelhub connection-2 | jq '.result'
-hermes -c hermes-config/config1.toml -j query channel end sentinelhub transfer channel-0 | jq
+hermes -c hermes-config/config1.toml -j query client state gaia 07-tendermint-2 | jq '.result.chain_id'
+hermes -c hermes-config/config1.toml -j query connection end gaia connection-2 | jq
+hermes -c hermes-config/config1.toml -j query channel end gaia transfer channel-0 | jq
+
+for i 
+gaiad q ibc client states -o json | jq '.client_states | .[2].client_id' #07-tendermint-2
+gaiad q ibc client states -o json | jq '.client_states | .[2].client_state.chain_id' #terra
+gaiad q ibc connection path 07-tendermint-2 -o json | jq '.connection_paths | .[0]' #connection-1
+gaiad q ibc channel connections connection-1 -o json | jq '.channels | .[].channel_id' #channel-2      counterparty : dst chain chan
