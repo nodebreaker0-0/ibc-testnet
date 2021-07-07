@@ -1,6 +1,6 @@
 [global]
 strategy = 'packets'
-log_level = 'trace'
+log_level = 'info'
 
 [[chains]]
 id = 'gaia'
@@ -11,8 +11,8 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uatom' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -27,8 +27,8 @@ rpc_timeout = '10s'
 account_prefix = 'band'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uband' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uband' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -44,8 +44,8 @@ rpc_timeout = '10s'
 account_prefix = 'terra'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uluna' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uluna' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -60,8 +60,8 @@ rpc_timeout = '10s'
 account_prefix = 'osmo'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uosmo' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uosmo' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -76,8 +76,8 @@ rpc_timeout = '10s'
 account_prefix = 'iaa'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uiris' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uiris' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -92,8 +92,8 @@ rpc_timeout = '10s'
 account_prefix = 'sent'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'udvpn' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'udvpn' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -108,8 +108,8 @@ rpc_timeout = '10s'
 account_prefix = 'regen'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uregen' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uregen' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -124,8 +124,8 @@ rpc_timeout = '10s'
 account_prefix = 'akash'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uakt' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uakt' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -140,8 +140,8 @@ rpc_timeout = '10s'
 account_prefix = 'cro'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'ucro' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'ucro' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
@@ -156,8 +156,8 @@ rpc_timeout = '10s'
 account_prefix = 'persistence'
 key_name = 'test1'
 store_prefix = 'ibc'
-max_gas = 2000000
-gas_price = { price = 0.001, denom = 'uxprt' }
+max_gas = 100000000
+gas_price = { price = 0.000, denom = 'uxprt' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
