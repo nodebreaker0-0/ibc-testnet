@@ -191,7 +191,7 @@ akash add-genesis-account $(akash keys show $WALLET_NAME_VALIDATOR -a --bech acc
 chain-maind add-genesis-account $(chain-maind keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$CRO_DENOM
 persistenceCore add-genesis-account $(persistenceCore keys show $WALLET_NAME_VALIDATOR -a --bech acc --keyring-backend test) 100000000000$PERSISTENCECORE_DENOM
 
-#sterss tester
+#sterss Recipient
 gaiad add-genesis-account cosmos18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6gxhe8c 1000000000000uatom
 bandd add-genesis-account band1dn94fk7ul6gj7dprdnw7ufvepmkwaun7tn8n4t 1000000000000uband
 terrad add-genesis-account terra17pdf2zxfcuclavl7874tjwuk89aga06h8uqzxz 100000000000uluna
