@@ -1,0 +1,163 @@
+[global]
+strategy = 'packets'
+log_level = 'trace'
+
+[[chains]]
+id = 'gaiad1'
+rpc_addr = 'http://127.0.0.1:26057'
+grpc_addr = 'http://127.0.0.1:9090'
+websocket_addr = 'ws://localhost:26057/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad2'
+rpc_addr = 'http://127.0.0.1:26157'
+grpc_addr = 'http://127.0.0.1:9191'
+websocket_addr = 'ws://localhost:26157/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad3'
+rpc_addr = 'http://127.0.0.1:26257'
+grpc_addr = 'http://127.0.0.1:9292'
+websocket_addr = 'ws://localhost:26257/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad4'
+rpc_addr = 'http://127.0.0.1:26357'
+grpc_addr = 'http://127.0.0.1:9393'
+websocket_addr = 'ws://localhost:26357/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad5'
+rpc_addr = 'http://127.0.0.1:26457'
+grpc_addr = 'http://127.0.0.1:9494'
+websocket_addr = 'ws://localhost:26457/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad6'
+rpc_addr = 'http://127.0.0.1:26557'
+grpc_addr = 'http://127.0.0.1:9595'
+websocket_addr = 'ws://localhost:26557/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad7'
+rpc_addr = 'http://127.0.0.1:26657'
+grpc_addr = 'http://127.0.0.1:9696'
+websocket_addr = 'ws://localhost:26657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad8'
+rpc_addr = 'http://127.0.0.1:26757'
+grpc_addr = 'http://127.0.0.1:9797'
+websocket_addr = 'ws://localhost:26757/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad9'
+rpc_addr = 'http://127.0.0.1:26857'
+grpc_addr = 'http://127.0.0.1:9898'
+websocket_addr = 'ws://localhost:26857/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'gaiad10'
+rpc_addr = 'http://127.0.0.1:26957'
+grpc_addr = 'http://127.0.0.1:9999'
+websocket_addr = 'ws://localhost:26957/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'test13'
+store_prefix = 'ibc'
+max_gas = 30000000
+gas_price = { price = 0.000, denom = 'uatom' }
+gas_adjustment = 1.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
