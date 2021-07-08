@@ -150,7 +150,7 @@ iris init test --chain-id iris
 sentinelhub init test --chain-id sentinelhub
 regen init test --chain-id regen
 akash init test --chain-id akash
-chain-maind init test --chain-id cro
+chain-maind init test --chain-id crod
 persistenceCore init test --chain-id persistenceCore
 
 rm ~/.sentinelhub/config/genesis.json
@@ -213,37 +213,37 @@ do
         MNEMONIC=$(echo $cli | jq -r '.mnemonic')
         echo "$MNEMONIC" >> MNEMONIC.key
         gaiada=$(echo $cli | jq -r '.address')
-        bandda=$(echo "$MNEMONIC" | bandd keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        terrada=$(echo "$MNEMONIC" | terrad keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        osmosisda=$(echo "$MNEMONIC" | osmosisd keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        irisa=$(echo "$MNEMONIC" | iris keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        sentinelhuba=$(echo "$MNEMONIC" | sentinelhub keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        regena=$(echo "$MNEMONIC" | regen keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        akasha=$(echo "$MNEMONIC" | akash keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        chainmainda=$(echo "$MNEMONIC" | chain-maind keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
-        persistenceCorea=$(echo "$MNEMONIC" | persistenceCore keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address'&)
+        bandda=$(echo "$MNEMONIC" | bandd keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        terrada=$(echo "$MNEMONIC" | terrad keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        osmosisda=$(echo "$MNEMONIC" | osmosisd keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        irisa=$(echo "$MNEMONIC" | iris keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        sentinelhuba=$(echo "$MNEMONIC" | sentinelhub keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        regena=$(echo "$MNEMONIC" | regen keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        akasha=$(echo "$MNEMONIC" | akash keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        chainmainda=$(echo "$MNEMONIC" | chain-maind keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
+        persistenceCorea=$(echo "$MNEMONIC" | persistenceCore keys add hermes$i --recover --keyring-backend test --output json| jq -r '.address')
  
-        hermes -c hermes-config/config$i.toml keys restore gaia -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore band -m "$MNEMONIC" -n test$i  -p "m/44'/494'/0'/0/0" &
-        hermes -c hermes-config/config$i.toml keys restore terra -m "$MNEMONIC" -n test$i -p "m/44'/330'/0'/0/0" &
-        hermes -c hermes-config/config$i.toml keys restore osmo -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore iris -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore sentinelhub -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore regen -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore akash -m "$MNEMONIC" -n test$i &
-        hermes -c hermes-config/config$i.toml keys restore cro -m "$MNEMONIC" -n test$i  -p "m/44'/394'/0'/0/0" &
-        hermes -c hermes-config/config$i.toml keys restore persistenceCore -m "$MNEMONIC" -n test$i -p "m/44'/750'/0'/0/0" &
+        hermes -c hermes-config/config$i.toml keys restore gaia -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore band -m "$MNEMONIC" -n test$i  -p "m/44'/494'/0'/0/0" 
+        hermes -c hermes-config/config$i.toml keys restore terra -m "$MNEMONIC" -n test$i -p "m/44'/330'/0'/0/0" 
+        hermes -c hermes-config/config$i.toml keys restore osmo -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore iris -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore sentinelhub -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore regen -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore akash -m "$MNEMONIC" -n test$i 
+        hermes -c hermes-config/config$i.toml keys restore crod -m "$MNEMONIC" -n test$i  -p "m/44'/394'/0'/0/0" 
+        hermes -c hermes-config/config$i.toml keys restore persistenceCore -m "$MNEMONIC" -n test$i -p "m/44'/750'/0'/0/0" 
 
-        gaiad add-genesis-account $gaiada 1000000000000uatom&
-        bandd add-genesis-account $bandda 1000000000000uband&
-        terrad add-genesis-account $terrada 100000000000uluna&
-        osmosisd add-genesis-account $osmosisda 1000000000000uosmo&
-        iris add-genesis-account $irisa 1000000000000uiris&
-        sentinelhub add-genesis-account $sentinelhuba 1000000000000udvpn&
-        regen add-genesis-account $regena 1000000000000uregen&
-        akash add-genesis-account $akasha 1000000000000uakt&
-        chain-maind add-genesis-account $chainmainda 1000000000000ucro&
-        persistenceCore add-genesis-account $persistenceCorea 1000000000000uxprt&
+        gaiad add-genesis-account $gaiada 1000000000000uatom
+        bandd add-genesis-account $bandda 1000000000000uband
+        terrad add-genesis-account $terrada 100000000000uluna
+        osmosisd add-genesis-account $osmosisda 1000000000000uosmo
+        iris add-genesis-account $irisa 1000000000000uiris
+        sentinelhub add-genesis-account $sentinelhuba 1000000000000udvpn
+        regen add-genesis-account $regena 1000000000000uregen
+        akash add-genesis-account $akasha 1000000000000uakt
+        chain-maind add-genesis-account $chainmainda 1000000000000ucro
+        persistenceCore add-genesis-account $persistenceCorea 1000000000000uxprt
 done
 
 gaiad gentx $WALLET_NAME_VALIDATOR 100000000$GAIA_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(gaiad tendermint show-validator) --chain-id gaia --keyring-backend test
@@ -254,7 +254,7 @@ iris gentx $WALLET_NAME_VALIDATOR 100000000$IRIS_DENOM --commission-max-change-r
 sentinelhub gentx $WALLET_NAME_VALIDATOR 100000000$SENTINELHUB_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(sentinelhub tendermint show-validator) --chain-id sentinelhub --keyring-backend test
 regen gentx $WALLET_NAME_VALIDATOR 100000000$REGEN_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(regen tendermint show-validator) --chain-id regen --keyring-backend test
 akash gentx $WALLET_NAME_VALIDATOR 100000000$AKASH_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(akash tendermint show-validator) --chain-id akash --keyring-backend test
-chain-maind gentx $WALLET_NAME_VALIDATOR 100000000$CRO_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(chain-maind tendermint show-validator) --chain-id cro --keyring-backend test
+chain-maind gentx $WALLET_NAME_VALIDATOR 100000000$CRO_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(chain-maind tendermint show-validator) --chain-id crod --keyring-backend test
 persistenceCore gentx $WALLET_NAME_VALIDATOR 100000000$PERSISTENCECORE_DENOM --commission-max-change-rate 1 --commission-max-rate 1  --commission-rate 1 --min-self-delegation 1 --pubkey=$(persistenceCore tendermint show-validator) --chain-id persistenceCore --keyring-backend test
 
 gaiad collect-gentxs

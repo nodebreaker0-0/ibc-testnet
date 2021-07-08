@@ -1,6 +1,6 @@
 [global]
 strategy = 'packets'
-log_level = 'info'
+log_level = 'trace'
 
 [[chains]]
 id = 'gaia'
@@ -132,7 +132,7 @@ trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
 [[chains]]
-id = 'cro'
+id = 'crod'
 rpc_addr = 'http://127.0.0.1:26957'
 grpc_addr = 'http://127.0.0.1:9999'
 websocket_addr = 'ws://localhost:26957/websocket'
@@ -141,11 +141,11 @@ account_prefix = 'cro'
 key_name = 'test1'
 store_prefix = 'ibc'
 max_gas = 100000000
-gas_price = { price = 0.000, denom = 'ucro' }
+gas_price = { price = 0.001, denom = 'ucro' }
 gas_adjustment = 0.1
 clock_drift = '5s'
 trusting_period = '14days'
-trust_threshold = { numerator = '1', denominator = '3' }
+trust_threshold = { numerator = '3', denominator = '3' }
 
 [[chains]]
 id = 'persistenceCore'
