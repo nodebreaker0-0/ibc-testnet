@@ -10,12 +10,11 @@ hermes -c hermes-config/config10.toml create channel gaiad1 gaiad10 --port-a tra
 
 hermes -c hermes-config/config11.toml create channel gaiad2 gaiad3 --port-a transfer --port-b transfer -o unordered&
 hermes -c hermes-config/config12.toml create channel gaiad2 gaiad4 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config13.toml create channel gaiad2 gaiad4 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config14.toml create channel gaiad2 gaiad5 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config15.toml create channel gaiad2 gaiad6 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config16.toml create channel gaiad2 gaiad7 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config17.toml create channel gaiad2 gaiad8 --port-a transfer --port-b transfer -o unordered&
-hermes -c hermes-config/config18.toml create channel gaiad2 gaiad9 --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config13.toml create channel gaiad2 gaiad5 --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config14.toml create channel gaiad2 gaiad6 --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config15.toml create channel gaiad2 gaiad7 --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config16.toml create channel gaiad2 gaiad8 --port-a transfer --port-b transfer -o unordered&
+hermes -c hermes-config/config17.toml create channel gaiad2 gaiad9 --port-a transfer --port-b transfer -o unordered&
 hermes -c hermes-config/config18.toml create channel gaiad2 gaiad10 --port-a transfer --port-b transfer -o unordered&
 
 hermes -c hermes-config/config19.toml create channel gaiad3 gaiad4 --port-a transfer --port-b transfer -o unordered&
