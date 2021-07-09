@@ -70,7 +70,7 @@ sudo systemctl disable gaiad6.service
 sudo systemctl disable gaiad7.service
 sudo systemctl disable gaiad8.service
 sudo systemctl disable gaiad9.service
-sudo systemctl disable gaiad110.service
+sudo systemctl disable gaiad10.service
 
 sudo rm /etc/systemd/system/gaiad.service
 sudo rm /etc/systemd/system/bandd.service
@@ -145,13 +145,13 @@ gaiad add-genesis-account cosmos18zh6zd2kwtekjeg0ns5xvn2x28hgj8n6gxhe8c 10000000
 
 #hermes
 rm -r ~/.hermes/
-
+rm MNEMONIC.key
 
 for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46
 do
         cli=$(gaiad keys add hermes$i --keyring-backend test --home ~/.gaiad1 --output json | jq -r '.')
         MNEMONIC=$(echo $cli | jq -r '.mnemonic')
-        echo "$MNEMONIC" >> MNEMONIC.key
+        echo -n "\"$MNEMONIC\"," >> MNEMONIC.key
         gaiada1=$(echo $cli | jq -r '.address')
         gaiada2=$(echo "$MNEMONIC" | gaiad keys add hermes$i --home ~/.gaiad2 --recover --keyring-backend test --output json| jq -r '.address')
         gaiada3=$(echo "$MNEMONIC" | gaiad keys add hermes$i --home ~/.gaiad3 --recover --keyring-backend test --output json| jq -r '.address')
