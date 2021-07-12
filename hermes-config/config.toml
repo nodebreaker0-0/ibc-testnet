@@ -2,6 +2,11 @@
 strategy = 'packets'
 log_level = 'trace'
 
+[telemetry]
+enabled = true
+host    = '0.0.0.0'
+port    = 3001
+
 [[chains]]
 id = 'gaia'
 rpc_addr = 'http://127.0.0.1:26657'

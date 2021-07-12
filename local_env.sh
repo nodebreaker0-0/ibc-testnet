@@ -155,6 +155,9 @@ persistenceCore init test --chain-id persistenceCore
 
 rm ~/.sentinelhub/config/genesis.json
 cp chains-config/sentinelhub/genesis.json ~/.sentinelhub/config/genesis.json
+rm ~/.chain-maind/config/genesis.json
+cp chains-config/cro/genesis.json ~/.chain-maind/config/genesis.json
+
 
 export WALLET_NAME_VALIDATOR=validator
 
@@ -299,7 +302,8 @@ cp chains-config/sentinelhub/app.toml ~/.sentinelhub/config/
 cp chains-config/sentinelhub/config.toml ~/.sentinelhub/config/
 cp chains-config/regen/* ~/.regen/config/
 cp chains-config/akash/* ~/.akash/config/
-cp chains-config/cro/* ~/.chain-maind/config/
+cp chains-config/cro/app.toml ~/.chain-maind/config/
+cp chains-config/cro/config.toml ~/.chain-maind/config/
 cp chains-config/persistenceCore/* ~/.persistenceCore/config/
 
 export USERNAME=$(whoami)
