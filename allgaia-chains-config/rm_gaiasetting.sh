@@ -29,7 +29,7 @@ sudo systemctl disable gaiad6.service
 sudo systemctl disable gaiad7.service
 sudo systemctl disable gaiad8.service
 sudo systemctl disable gaiad9.service
-sudo systemctl disable gaiad110.service
+sudo systemctl disable gaiad10.service
 
 sudo rm /etc/systemd/system/gaiad1.service
 sudo rm /etc/systemd/system/gaiad2.service
