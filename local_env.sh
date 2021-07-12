@@ -1,7 +1,7 @@
 git clone https://github.com/informalsystems/ibc-rs
 cd ibc-rs
 git pull
-git checkout v0.5.0
+git checkout v0.6.0
 sudo apt install libssl-dev
 sudo apt install pkg-config
 cargo install ibc-relayer-cli --bin hermes --locked
