@@ -14,7 +14,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -30,7 +30,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -46,7 +46,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -62,7 +62,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -78,7 +78,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -94,7 +94,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -110,7 +110,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -126,7 +126,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -142,7 +142,7 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -158,6 +158,6 @@ store_prefix = 'ibc'
 max_gas = 30000000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '5s'
+clock_drift = '600s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
