@@ -13,7 +13,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -31,7 +31,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -49,7 +49,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -67,7 +67,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -85,7 +85,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -103,7 +103,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -121,7 +121,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -139,7 +139,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -157,7 +157,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
@@ -175,7 +175,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test25'
 store_prefix = 'ibc'
-max_gas = 300000000
+max_gas = 30000000000
 max_msg_num = 100000000
 max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }

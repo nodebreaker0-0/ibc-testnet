@@ -13,7 +13,7 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uatom' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -29,7 +29,7 @@ rpc_timeout = '10s'
 account_prefix = 'band'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uband' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -46,7 +46,7 @@ rpc_timeout = '10s'
 account_prefix = 'terra'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uluna' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -62,7 +62,7 @@ rpc_timeout = '10s'
 account_prefix = 'osmo'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uosmo' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -78,7 +78,7 @@ rpc_timeout = '10s'
 account_prefix = 'iaa'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uiris' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -94,7 +94,7 @@ rpc_timeout = '10s'
 account_prefix = 'sent'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'udvpn' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -110,7 +110,7 @@ rpc_timeout = '10s'
 account_prefix = 'regen'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uregen' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -126,7 +126,7 @@ rpc_timeout = '10s'
 account_prefix = 'akash'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uakt' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -142,7 +142,7 @@ rpc_timeout = '10s'
 account_prefix = 'cro'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'ucro' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
@@ -158,7 +158,7 @@ rpc_timeout = '10s'
 account_prefix = 'persistence'
 key_name = 'test39'
 store_prefix = 'ibc'
-max_gas = 2000000
+max_gas = 30000000000
 gas_price = { price = 0.001, denom = 'uxprt' }
 gas_adjustment = 0.1
 clock_drift = '1800s'
