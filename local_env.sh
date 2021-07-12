@@ -21,7 +21,7 @@ rm -r gaia
 git clone https://github.com/terra-money/core
 cd core
 git pull
-git checkout v0.5.0-beta4
+git checkout v0.5.0-rc0
 make install
 cd ..
 rm -r core
