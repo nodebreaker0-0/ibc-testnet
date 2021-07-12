@@ -1,6 +1,8 @@
 [global]
 strategy = 'packets'
 log_level = 'trace'
+filter = true
+clear_packets_interval = 600
 
 [telemetry]
 enabled = true
@@ -16,10 +18,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -30,12 +34,12 @@ grpc_addr = 'http://127.0.0.1:9595'
 websocket_addr = 'ws://localhost:26557/websocket'
 rpc_timeout = '10s'
 account_prefix = 'band'
-key_name = 'test1'
+key_name = 'test46'
 store_prefix = 'ibc'
 max_gas = 100000000
 gas_price = { price = 0.000, denom = 'uband' }
 gas_adjustment = 0.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -46,12 +50,12 @@ grpc_addr = 'http://127.0.0.1:9292'
 websocket_addr = 'ws://localhost:26257/websocket'
 rpc_timeout = '10s'
 account_prefix = 'terra'
-key_name = 'test1'
+key_name = 'test46'
 store_prefix = 'ibc'
 max_gas = 100000000
 gas_price = { price = 0.000, denom = 'uluna' }
 gas_adjustment = 0.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -64,10 +68,12 @@ rpc_timeout = '10s'
 account_prefix = 'osmo'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uosmo' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -80,10 +86,12 @@ rpc_timeout = '10s'
 account_prefix = 'iaa'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uiris' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -96,10 +104,12 @@ rpc_timeout = '10s'
 account_prefix = 'sent'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'udvpn' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -112,10 +122,12 @@ rpc_timeout = '10s'
 account_prefix = 'regen'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uregen' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -128,10 +140,12 @@ rpc_timeout = '10s'
 account_prefix = 'akash'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uakt' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -142,12 +156,12 @@ grpc_addr = 'http://127.0.0.1:9999'
 websocket_addr = 'ws://localhost:26957/websocket'
 rpc_timeout = '10s'
 account_prefix = 'cro'
-key_name = 'test1'
+key_name = 'test46'
 store_prefix = 'ibc'
 max_gas = 100000000
 gas_price = { price = 0.001, denom = 'ucro' }
 gas_adjustment = 0.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -160,9 +174,11 @@ rpc_timeout = '10s'
 account_prefix = 'persistence'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uxprt' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }

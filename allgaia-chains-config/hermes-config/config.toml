@@ -1,6 +1,8 @@
 [global]
 strategy = 'packets'
 log_level = 'trace'
+filter = true
+clear_packets_interval = 600
 
 [telemetry]
 enabled = true
@@ -16,10 +18,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -32,10 +36,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -48,10 +54,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -64,10 +72,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -80,10 +90,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -96,10 +108,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -112,10 +126,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -128,10 +144,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -144,10 +162,12 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
 
@@ -160,9 +180,11 @@ rpc_timeout = '10s'
 account_prefix = 'cosmos'
 key_name = 'test46'
 store_prefix = 'ibc'
-max_gas = 30000000
+max_gas = 300000000
+max_msg_num = 100000000
+max_tx_size = 2097152000
 gas_price = { price = 0.000, denom = 'uatom' }
 gas_adjustment = 1.1
-clock_drift = '600s'
+clock_drift = '1800s'
 trusting_period = '14days'
 trust_threshold = { numerator = '1', denominator = '3' }
